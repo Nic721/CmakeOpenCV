@@ -29,6 +29,19 @@ public class CppImageProcessUtils {
         return newBitmap;
     }
 
+    public static Bitmap imageProcess(Bitmap bitmap){
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int[] pixArr = new int[width*height];
+        bitmap.getPixels(pixArr,0,width,0,0,width,height);
+        cppImageThreshold(width,height,pixArr);
+        Bitmap newBitmap = Bitmap.createBitmap(width, height,Bitmap.Config.ARGB_8888);
+        newBitmap.setPixels(pixArr,0,width,0,0,width,height);
+        return newBitmap;
+    }
+
     // 定义java本地方法
     public static native void cppImageProcess(int w, int h, int[] pixArr, int ld);
+    // opencv c++图片二值化
+    public static native void cppImageThreshold(int w, int h, int[] pixArr);
 }

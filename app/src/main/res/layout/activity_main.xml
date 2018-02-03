@@ -20,5 +20,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="JniOpencvDemo"/>
+    <Button
+        android:id="@+id/jni_threshold"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JniThreshold"/>
+    <Button
+        android:id="@+id/java_Threshold"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JavaThreshold"/>
+    <TextView
+        android:id="@+id/retult_time"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

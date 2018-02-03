@@ -51,3 +51,22 @@ Java_com_example_changxiaoyu_jniopencvdemo_CppImageProcessUtils_cppImageProcess(
     // 0:表示处理完成之后，将C的内存释放掉
     env->ReleaseIntArrayElements(jPixArr, cPixArr, 0);
 }
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_example_changxiaoyu_jniopencvdemo_CppImageProcessUtils_cppImageThreshold(JNIEnv *env,
+                                                                                   jclass jclass,
+                                                                                   jint jw, jint jh,
+                                                                                   jintArray jpixArr) {
+    jint* cPixArr = env->GetIntArrayElements(jpixArr,JNI_FALSE);
+    if(cPixArr == NULL){
+        return;
+    }
+    Mat mat_image_src(jh,jw,CV_8UC4,(unsigned char*)cPixArr);
+    Mat mat_image_dst;
+    cvtColor(mat_image_src,mat_image_dst,CV_RGBA2GRAY,1);
+    Mat mat_image_thereshold;
+    cv::adaptiveThreshold(mat_image_dst,mat_image_thereshold,255,ADAPTIVE_THRESH_GAUSSIAN_C,CV_THRESH_BINARY,31,9);
+    cvtColor(mat_image_thereshold,mat_image_src,CV_GRAY2BGRA,4);
+    env->ReleaseIntArrayElements(jpixArr,cPixArr,0);
+}

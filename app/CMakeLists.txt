@@ -23,7 +23,7 @@ add_library( opencv_java3
 # 引入libopencv_java3.so文件，配置动态库
 set_target_properties( opencv_java3
                        PROPERTIES IMPORTED_LOCATION
-                       ../../../../src/main/jniLibs/armeabi/libopencv_java3.so)
+                       ../../../../libs/armeabi/libopencv_java3.so)
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.

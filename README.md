@@ -1,5 +1,4 @@
-# JniOpencv环境配置
-
+# Blog
 ## 一、准备开发包
 1. 将OpenCV-android-sdk->sdk->native->libs->armeabi拷贝到项目main->jniLibs中
 2. 将OpenCV-android-sdk->sdk->native->libs->armeabi拷贝到项目libs目录中
